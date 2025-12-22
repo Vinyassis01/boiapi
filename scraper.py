@@ -28,7 +28,7 @@ def get_page_boi(url,headers):
     return table
 
 dados_boi = get_page_boi(url=url_boi,headers=headers)
-with open(f'valores @ {datetime.date.today()}.json','w') as json:
+with open(f'boi gordo @ {datetime.date.today()}.json','w') as json:
     for item in dados_boi :
         valor = item.get_text()
         padrao = r"\s(\S+)\s"
@@ -58,75 +58,3 @@ with open(f'valores @ {datetime.date.today()}.json','w') as json:
 """)
     json.close()
 
-# garrote
-def get_page_garrote(url,headers):
-    page = requests.get(url,headers)
-    page_content = page.content
-    soap = BeautifulSoup(page_content,'html.parser')
-# implementar o parser da pagina
-    pass
-
-dados_garrote = get_page_garrote(url=url_garrote,headers=headers)
-with open (f'valores @ garrote {datetime.date.today()}') as json:
-    for item in dados_garrote :
-        abertura = '{'
-        fechamento = '}'
-        json.write(f"""
-{abertura}
-"date":"{datetime.date.today()}",
-"animal":"boi",
-"arroba":"{dados[2]}",
-"estado":"{dados[0]}",
-"regiao":"{dados[1]}"
-{fechamento},
-""")
-        json.close()
-
-# bezerro
-def get_page_bezerro(url,headers):
-    page = requests.get(url,headers)
-    page_content = page.content
-    soap = BeautifulSoup(page_content,'html.parser')
-# implementar o parser da pagina
-    pass
-
-dados_bezerro = get_page_bezerro(url=url_bezerro,headers=headers)
-with open (f'valores @ bezerro {datetime.date.today()}') as json :
-    for item in dados_bezerro :
-        abertura = '{'
-        fechamento = '}'
-        json.write(f"""
-{abertura}
-"date":"{datetime.date.today()}",
-"animal":"boi",
-"arroba":"{dados[2]}",
-"estado":"{dados[0]}",
-"regiao":"{dados[1]}"
-{fechamento},
-""")
-        json.close()      
-
-# garrote
-def get_page_vaca_gorda(url,headers):
-    page = requests.get(url,headers)
-    page_content = page.content
-    soap = BeautifulSoup(page_content,'html.parser')
-# implementar o parser da pagina
-    pass
-
-dados_vacas_gorda = get_page_vaca_gorda(url=url_vaca_gorda,headers=headers)
-with open (f'valores @ vaca gorda {datetime.date.today()}') as json :
-    for item in dados_vacas_gorda :
-        abertura = '{'
-        fechamento = '}'
-        json.write(f"""
-{abertura}
-"date":"{datetime.date.today()}",
-"animal":"boi",
-"arroba":"{dados[2]}",
-"estado":"{dados[0]}",
-"regiao":"{dados[1]}"
-{fechamento},
-""")
-        json.close()
-        
