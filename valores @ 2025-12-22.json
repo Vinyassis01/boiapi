@@ -1,21 +1,22 @@
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"318,50",
-"estado":"SP",
-"regiao":""
-},
-{
-"date":"2025-12-08",
-"animal":"boi",
-"arroba":"318,50",
+"arroba":"317,50",
 "estado":"SP",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
+"animal":"boi",
+"arroba":"317,50",
+"estado":"SP",
+"regiao":""
+},
+
+{
+"date":"2025-12-22",
 "animal":"boi",
 "arroba":"308,50",
 "estado":"MG",
@@ -23,23 +24,23 @@
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"314,50",
+"arroba":"313,50",
 "estado":"MG",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"311,50",
+"arroba":"312,50",
 "estado":"MG",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
 "arroba":"306,50",
 "estado":"MG",
@@ -47,87 +48,79 @@
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"311,50",
+"arroba":"308,50",
 "estado":"GO",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"313,00",
+"arroba":"309,00",
 "estado":"GO",
 "regiao":"Sul"
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"311,50",
+"arroba":"309,50",
 "estado":"MS",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"316,00",
+"arroba":"314,00",
 "estado":"MS",
 "regiao":"Grande"
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"315,00",
+"arroba":"312,00",
 "estado":"MS",
 "regiao":"Lagoas"
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"10,55",
+"arroba":"10,65",
 "estado":"RS",
 "regiao":"(kg)"
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"10,85",
+"arroba":"10,80",
 "estado":"RS",
 "regiao":"(kg)"
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"308,50",
+"arroba":"302,00",
 "estado":"BA",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"313,50",
+"arroba":"311,50",
 "estado":"BA",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
-"animal":"boi",
-"arroba":"299,00",
-"estado":"MT",
-"regiao":""
-},
-
-{
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
 "arroba":"297,00",
 "estado":"MT",
@@ -135,23 +128,31 @@
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"301,00",
+"arroba":"292,00",
 "estado":"MT",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"302,00",
+"arroba":"299,00",
 "estado":"MT",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
+"animal":"boi",
+"arroba":"297,00",
+"estado":"MT",
+"regiao":""
+},
+
+{
+"date":"2025-12-22",
 "animal":"boi",
 "arroba":"323,50",
 "estado":"PR",
@@ -159,105 +160,105 @@
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"325,00",
+"arroba":"326,00",
 "estado":"SC",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"299,00",
+"arroba":"297,00",
 "estado":"MA",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"302,00",
+"arroba":"304,00",
 "estado":"Alagoas",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"297,00",
+"arroba":"295,00",
 "estado":"PA",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"292,00",
+"arroba":"289,00",
 "estado":"PA",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"306,50",
+"arroba":"302,00",
 "estado":"PA",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"275,00",
+"arroba":"272,00",
 "estado":"RO",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"302,00",
+"arroba":"297,00",
 "estado":"TO",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"298,00",
+"arroba":"297,00",
 "estado":"TO",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"270,00",
+"arroba":"265,00",
 "estado":"Acre",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"300,00",
+"arroba":"305,00",
 "estado":"ES",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"323,00",
+"arroba":"325,00",
 "estado":"RJ",
 "regiao":""
 },
 
 {
-"date":"2025-12-08",
+"date":"2025-12-22",
 "animal":"boi",
-"arroba":"292,00",
+"arroba":"294,00",
 "estado":"Roraima",
 "regiao":""
 },
