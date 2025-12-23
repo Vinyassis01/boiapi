@@ -1,12 +1,13 @@
 from bs4 import BeautifulSoup
 import requests
 import datetime
-
 url = 'https://www.scotconsultoria.com.br/cotacoes/reposicao/'
 headers ='Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0'
-response = requests.get(url,headers)
-page_content = response.content
-soap = BeautifulSoup(page_content,'html.parser')
+def page (url,headers):
+    response = requests.get(url,headers)
+    page_content = response.content
+    soap = BeautifulSoup(page_content,'html.parser')
+    return soap
 
 def macho_nelore(soap):
     # ok
@@ -93,4 +94,58 @@ def macho_nelore(soap):
 """)
     json.close()
 
-macho_nelore(soap=soap)
+def femea_nelore (soap):
+    femea_nelorada = soap.find_all('tr',class_="conteudo")[28:41]
+    date = datetime.date.today()
+    abertura = '{'
+    fechamento = '}'
+#    with open(f'vaca boiadeira @ {datetime.date.today()}','w')as json:
+#        for vaca_boiadeira in femea_nelorada:
+#            estado = vaca_boiadeira.get_text()[1:4]
+#            valor = int(vaca_boiadeira.get_text()[6:11])
+#            arroba = valor/11
+#            json.write(f"""{abertura}
+#"date":"{date}",
+#"animal":"vaca boideira",
+#"arroba":"{arroba:.2f}",
+#"estado":"{estado}",
+#"regiao":"{estado}"
+#{fechamento}
+#,""")
+#    json.close()
+
+#    with open(f'novilha @ {datetime.date.today()}','w')as json:
+#        for novilha in femea_nelorada:
+#            estado = novilha.get_text()[1:4]
+#            valor = novilha.get_text()[31:37]
+#            valores = float(valor.replace(',','.'))
+#            arroba = valores/9
+#            json.write(f"""{abertura}
+#"date":"{date}",
+#"animal":"novilha",
+#"arroba":"{arroba:.2f}",
+#"estado":"{estado}",
+#"regiao":"{estado}"
+#{fechamento}
+#,""")
+#    json.close()
+
+    with open(f'bezerra 7@ {datetime.date.today()}','w')as json:
+        for bezerra in femea_nelorada:
+            estado = bezerra.get_text()[1:4]
+            valor = bezerra.get_text()[55:63]
+            valores = float(valor.replace(',','.'))
+            arroba = valores/7
+            json.write(f"""{abertura}
+"date":"{date}",
+"animal":"novilha",
+"arroba":"{arroba:.2f}",
+"estado":"{estado}",
+"regiao":"{estado}"
+{fechamento}
+,""")
+    json.close()
+
+#pagina = page(url,headers) 
+femea_nelore(soap=page(url,headers))
+macho_nelore(soap=page(url,headers))
