@@ -17,14 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from boiAPI.views import arrobas,arroba_por_estado,inserir,inserir_url
-from boiAPI.views import delete, update,arroba_por_animal,date_boi
+from boiAPI.views import delete, update,arroba_por_animal,date_boi,render_custom_api
 from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('arroba',arrobas), #GET
-    path('arroba/<str:date>/',date_boi,name='arrobas do dia'),# get por data
+#    path('arroba/<str:date>/',date_boi,name='arrobas do dia'),# get por data
     path('update',inserir), # POST
+    path('page/',render_custom_api,name='html customizado'), #GET
     path('arroba/<str:estado>',arroba_por_estado,name='arroba por estado'), # GET
     path('arroba/<str:animal>',arroba_por_animal,name='animais por estado'),# GET
     path('update/<str:date>/<str:animal>/<int:arroba>/<str:estado>/<str:regiao>',inserir_url,name='arroba_por_estado'), # POST

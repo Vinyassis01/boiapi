@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view,renderer_classes
+from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from boiAPI.models import Boi
 from boiapi.serialyzers import Boiserialyzer
@@ -43,9 +44,9 @@ def arroba_por_animal (request,animal):
     except:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-@api_view(["POST","GET"]) # funciona com curl >>  curl -X POST -H "Content-Type: application/json" -d \\
-    # "{\"id\":2,\"date\":\"2025-11-27\",\"animal\":\"boi\",\"arroba\":280.5,\"estado\":\"sp\",\"regiao\":\"oeste\"}" http://127.0.0.1:8000/update
-def inserir(request): # retorna 201 
+@api_view(["POST","GET"])
+# curl http://127.0.0.1:8000/update --json '{"date":"2025-12-23","animal":"bezerro desmamado","arroba":"446.15","estado":"SP","regiao":"SP"}'
+def inserir(request):
     try:
         if request.method == "POST": # verifica se o metodo e post
             serializador = Boiserialyzer(data=request.data) # serializa os dados da requisicao
@@ -91,3 +92,12 @@ def update (request,id):
     except:
         return Response(status=status.HTTP_304_NOT_MODIFIED)
    
+@api_view(['GET'])
+@renderer_classes([TemplateHTMLRenderer])
+def render_custom_api(request):
+    # Buscando dados do banco de dados
+    dados = Boi.objects.all()
+    serializador = Boiserialyzer(dados,many=True)
+    data = serializador.data
+    # O Response recebe o dicionário de contexto e o template_name
+    return Response({"dados":data},template_name='boiAPI/main.html')

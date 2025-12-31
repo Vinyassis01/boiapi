@@ -1,0 +1,118 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Dados API</title>
+    <style>
+        :root {
+            --primary-color: #06f3b8;
+            --bg-color: #213850;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .container p,h1 {
+            color:#ffffff;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Grid de 4 Colunas */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* Cria duas colunas iguais */
+            gap: 20px; /* Espaço entre os blocos */
+            justify-content: center;
+        }
+
+        /* Estilo do Bloco (Card) */
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            border-left: 5px solid var(--primary-color);
+            /* Tamanho Fixo solicitado */
+            width: 200px;
+            height: 200px;
+            
+            /* Garante que o padding não aumente o tamanho total */
+            box-sizing: border-box; 
+            
+            /* Organização interna */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Evita que texto extra saia do card */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            text-transform: capitalize;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .loading {
+            text-align: center;
+            grid-column: span 2;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsividade para Celulares */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Muda para 1 coluna em telas pequenas */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Dados da API</h1>
+            <p>Apresentação dos valores</p>
+        </header>
+
+        <!-- Container onde os dados serão inseridos -->
+        <div id="api-data-container" class="grid-container">
+           
+            <div class="grid-container">
+            {% for item in dados %}
+                <div class="card">
+                    <p>{{ item }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+    </body>
+    </html>

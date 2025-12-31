@@ -1,0 +1,1 @@
+alert(' testando a estrutura dos arquivos')
