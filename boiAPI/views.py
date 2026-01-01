@@ -18,29 +18,34 @@ def date_boi(request,date):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
 @api_view(["GET"]) # OK
+@renderer_classes([TemplateHTMLRenderer])
 def arrobas (request):
     try:
         valores = Boi.objects.all()
         serializador = Boiserialyzer(valores,many=True) # many=True e necessario para consultar varios valores
-        return Response (serializador.data)
+        data = serializador.data
+        return Response({"dados":data},template_name='boiAPI/main.html')
     except:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
 @api_view(["GET"]) # OK
+@renderer_classes([TemplateHTMLRenderer])  
 def arroba_por_estado (request,estado):
     try:
         valores_estado = Boi.objects.filter(estado=estado) # estado=estado e necessario para os parametros na url
         serializador = Boiserialyzer(valores_estado,many=True)
-        return Response(serializador.data)
+        data = serializador.data
+        return Response({"dados":data},template_name='boiAPI/main.html')
     except:
         return Response(status=status.HTTP_404_NOT_FOUND)
-    
-@api_view(["GET"]) # OK
+@api_view(['GET'])
+@renderer_classes([TemplateHTMLRenderer])    
 def arroba_por_animal (request,animal):
     try:
         valores_estado = Boi.objects.filter(animal=animal) # animal=animal e necessario para os parametros na url
         serializador = Boiserialyzer(valores_estado,many=True)
-        return Response(serializador.data)
+        data = serializador.data
+        return Response({"dados":data},template_name='boiAPI/main.html')
     except:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -101,3 +106,9 @@ def render_custom_api(request):
     data = serializador.data
     # O Response recebe o dicionário de contexto e o template_name
     return Response({"dados":data},template_name='boiAPI/main.html')
+
+@api_view(['GET'])
+@renderer_classes([TemplateHTMLRenderer])
+def home(request):
+    dados ={"bem vindo":"de uma olhada na API"}
+    return Response(dados,template_name='boiAPI/home.html')
