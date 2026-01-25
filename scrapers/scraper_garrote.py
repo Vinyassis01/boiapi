@@ -80,7 +80,8 @@ def macho_nelore(soap):
                 valor = bezerro_desmamado.get_text()[82:87]
                 valor_animal = valor+'0'
                 if len(valor_animal) >= 4:
-                    arroba = int(valor_animal)/60.5
+                    valores = float(valor.replace(',','.'))
+                    arroba = int(valores)/60.5
                 else:
                     arroba = int(valor_animal)/6.5
             json.write(f"""{abertura}

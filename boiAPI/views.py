@@ -1,12 +1,34 @@
 from django.shortcuts import render
 from rest_framework import status
+from rest_framework import viewsets
 from rest_framework.decorators import api_view,renderer_classes
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
-from boiAPI.models import Boi
-from boiapi.serialyzers import Boiserialyzer
+from boiAPI.models import Boi,Animal,Estado
+from boiapi.serialyzers import Boiserialyzer,AnimalSerialyzer,EstadoSerialyzer
 from datetime import datetime
 # Create your views here.
+
+class EstadoViewSet(viewsets.ModelViewSet):
+    permission_classes = [permissions.IsAuthenticated] 
+    queryset = Estado.objects.all()
+    serializer_class = EstadoSerialyzer
+
+    def get_queryset(self):
+        return Estado.objects.all()
+    
+class AnimalViewSet(viewsets.ModelViewSet):
+    permission_classes = [permissions.IsAuthenticated] 
+    queryset= Animal.objects.all()
+    serializer_class = AnimalSerialyzer
+
+class AnimalPageViewSet(viewsets.ReadOnlyViewSet):
+    queryset = Animal.objects.all()
+    serializer_class = AnimalSerialyzer
+
+class EstadoPageViewSet(viewsets.ReadOnlyViewSet):
+    queryset = Estado.objects.all()
+    serializer_class = AnimalSerialyzer
 
 @api_view(["GET"])
 def date_boi(request,date):
@@ -38,6 +60,7 @@ def arroba_por_estado (request,estado):
         return Response({"dados":data},template_name='boiAPI/main.html')
     except:
         return Response(status=status.HTTP_404_NOT_FOUND)
+    
 @api_view(['GET'])
 @renderer_classes([TemplateHTMLRenderer])    
 def arroba_por_animal (request,animal):

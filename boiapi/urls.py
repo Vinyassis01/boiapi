@@ -15,20 +15,34 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from boiAPI.views import arrobas,arroba_por_estado,inserir,inserir_url,home
+from django.urls import path,include 
+from boiAPI.views import arrobas,arroba_por_estado,inserir,inserir_url,home,EstadoViewSet
+from boiAPI.views import AnimalViewSet, AnimalPageViewSet, EstadoPageViewSet
 from boiAPI.views import delete, update,arroba_por_animal,date_boi,render_custom_api
-from rest_framework.urlpatterns import format_suffix_patterns
+from rest_framework.routers import DefaultRouter
+
+modificar_animal = AnimalViewSet.as_view({'put':'update','patch':'partial_update','delete':'destroy'})
+modificar_estado = EstadoViewSet.as_view({'put':'update','patch':'partial_update','delete':'destroy'})
+listar_animais = AnimalPageViewSet.as_view({'get':'list'})
+listar_estados = EstadoPageViewSet.as_view({'get':'list'})
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('arroba',arrobas), #GET
+    path('animais/<int:pk>/modificar/', modificar_animal, name= 'modificar animal'),
+    path('animais/<int:pk>/delete/', modificar_animal, name='deletar animal'),
+    path('estados/<int:pk>/modificar/', modificar_estado, name='modificar estado'),
+    path('estados/<int:pk>/delete/', animal_update_delete, name='deletar estado'),
+    path('animais',listar_animais, name='listar_animais'),
+    path('estados',listar_estados, name='listar_estados'),
+
+#    path('api/', include(router.urls)),
+#    path('arroba',arrobas), #GET
 #    path('arroba/<str:date>/',date_boi,name='arrobas do dia'),# get por data
-    path('update',inserir), # POST
-    path('page/',render_custom_api,name='html customizado'), #GET
-    path('',home,name='bem vindo a BOIAPI'),# GET para a home do site
-    path('arroba/<str:estado>',arroba_por_estado,name='arroba por estado'), # GET
-    path('arroba/<str:animal>',arroba_por_animal,name='animais por estado'),# GET
+#    path('update',inserir), # POST
+#    path('page/',render_custom_api,name='html customizado'), #GET
+#    path('',home,name='bem vindo a BOIAPI'),# GET para a home do site
+#    path('arroba/<str:estado>',arroba_por_estado,name='arroba por estado'), # GET
+#    path('arroba/<str:animal>',arroba_por_animal,name='animais por estado'),# GET
 #    path('update/<str:date>/<str:animal>/<int:arroba>/<str:estado>/<str:regiao>',inserir_url,name='arroba_por_estado'), # POST
-    path('delete/<int:id>',delete,name='delete'), # DELETE
+#    path('delete/<int:id>',delete,name='delete'), # DELETE
 ]
