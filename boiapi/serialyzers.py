@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from boiAPI.models import Boi,Animal,Estado
+from boiAPI.models import Animal,Estado
 
-class Boiserialyzer (serializers.Serializer):
-    class Meta:
-        model = Boi
-        fields = ['id','date','animal','arroba','estado','regiao']
+# class Boiserialyzer (serializers.Serializer):
+#     class Meta:
+#         model = Boi
+#         fields = ['id','date','animal','arroba','estado','regiao']
 
 class EstadoSerialyzer (serializers.ModelSerializer):
     class Meta:

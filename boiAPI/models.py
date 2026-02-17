@@ -2,13 +2,6 @@ from django.db import models
 import datetime 
 
 # Create your models here.
-class Boi (models.Model):
-    date = models.CharField(max_length=10)
-    animal = models.CharField(max_length=20,blank=False)
-    arroba = models.FloatField()
-    estado = models.CharField(max_length=2)
-    regiao = models.CharField(max_length=20)
-
 class Estado (models.Model):
     estado = models.CharField(max_length=25,default='SP')
     regiao = models.CharField(max_length=20,default='oeste')
@@ -26,3 +19,15 @@ class Animal (models.Model):
 
     def __str__(self):
         return f"{self.nome},{self.data},{self.idade},{self.arroba}"
+
+class Boi_gordo (models.Model):
+    estado = models.CharField(max_length=50,default='')
+    animal = models.CharField(max_length=50,default='boi gordo')
+    regiao = models.CharField(max_length=50,default='')
+    arroba_a_vista = models.CharField(max_length=10,default='')
+    arroba_a_prazo = models.CharField(max_length=10,default='')
+    variacao = models.CharField(max_length=10,default='0,0')
+    data = models.DateField()
+
+    def __str__(self):
+        return f"{self.estado},{self.animal},{self.regiao},{self.arroba_a_vista},{self.arroba_a_prazo},{self.variacao},{self.data}"

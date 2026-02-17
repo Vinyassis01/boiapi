@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from rest_framework import status
+from rest_framework import status, permissions
 from rest_framework import viewsets
 from rest_framework.decorators import api_view,renderer_classes
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
-from boiAPI.models import Boi,Animal,Estado
-from boiapi.serialyzers import Boiserialyzer,AnimalSerialyzer,EstadoSerialyzer
+from boiAPI.models import Animal,Estado
+from boiapi.serialyzers import AnimalSerialyzer,EstadoSerialyzer
 from datetime import datetime
 # Create your views here.
 
@@ -22,11 +22,11 @@ class AnimalViewSet(viewsets.ModelViewSet):
     queryset= Animal.objects.all()
     serializer_class = AnimalSerialyzer
 
-class AnimalPageViewSet(viewsets.ReadOnlyViewSet):
+class AnimalPageViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Animal.objects.all()
     serializer_class = AnimalSerialyzer
 
-class EstadoPageViewSet(viewsets.ReadOnlyViewSet):
+class EstadoPageViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Estado.objects.all()
     serializer_class = AnimalSerialyzer
 
