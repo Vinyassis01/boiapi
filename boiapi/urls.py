@@ -16,15 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include 
-from boiAPI.views import arrobas,arroba_por_estado,inserir,inserir_url,home,EstadoViewSet
-from boiAPI.views import AnimalViewSet, AnimalPageViewSet, EstadoPageViewSet
-from boiAPI.views import delete, update,arroba_por_animal,date_boi,render_custom_api
-from rest_framework.routers import DefaultRouter
+from boiAPI.views import arrobas,arroba_por_estado,inserir,inserir_url,home
+# views somente para leitura
+from boiAPI.views import AnimalPageViewSet, EstadoPageViewSet, Boi_gordoPageViewSet, Animal_reposicaoPageViewSet
+# views para modificar (read, update, delete)
+from boiAPI.views import Boi_gordoViewSet, Animal_reposicaoViewSet, EstadoViewSet, AnimalViewSet
 
 modificar_animal = AnimalViewSet.as_view({'put':'update','patch':'partial_update','delete':'destroy'})
 modificar_estado = EstadoViewSet.as_view({'put':'update','patch':'partial_update','delete':'destroy'})
+modificar_animal_reposicao = Animal_reposicaoViewSet.as_view({'put':'update','patch':'partial_update','delete':'destroy'})
+modificar_boi_gordo = Boi_gordoViewSet.as_view({'put':'update','patch':'partial_update','delete':'destroy'})
 listar_animais = AnimalPageViewSet.as_view({'get':'list'})
 listar_estados = EstadoPageViewSet.as_view({'get':'list'})
+listar_animais_reposicao = Animal_reposicaoPageViewSet.as_view({'get':'list'})
+listar_boi_gordo = Boi_gordoPageViewSet.as_view({'get':'list'})
 
 urlpatterns = [
     path('admin/', admin.site.urls),
