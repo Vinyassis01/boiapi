@@ -31,3 +31,17 @@ class Boi_gordo (models.Model):
 
     def __str__(self):
         return f"{self.estado},{self.animal},{self.regiao},{self.arroba_a_vista},{self.arroba_a_prazo},{self.variacao},{self.data}"
+
+
+# model para animais de reposicao (machos e femeas nelorados)
+# tambem sera usado para animais mesticos
+class Animal_reposicao(models.Model):
+    estado = models.CharField(max_length=50,default='')
+    animal = models.CharField(max_length=50,default='boi gordo')
+    valor_animal = models.CharField(max_length=50,default='')
+    relacao_troca_1 = models.CharField(max_length=10)
+    relacao_troca_2 = models.CharField(max_length=10)
+    data = models.DateField()
+
+    def __str__(self):
+        return f"{self.estado},{self.animal},{self.valor_animal},{self.relacao_troca_1},{self.relacao_troca_2},{self.data}"
