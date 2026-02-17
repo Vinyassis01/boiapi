@@ -35,8 +35,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('animais/<int:pk>/modificar/', modificar_animal, name= 'modificar animal'),
     path('animais/<int:pk>/delete/', modificar_animal, name='deletar animal'),
+    path('animais/inserir/', modificar_animal, name='inserir animal'),
     path('estados/<int:pk>/modificar/', modificar_estado, name='modificar estado'),
     path('estados/<int:pk>/delete/', modificar_estado, name='deletar estado'),
+    path('estados/inserir/', modificar_animal, name='inserir estado'),
+    path('boi_gordo/inserir/', modificar_boi_gordo, name='inserir boi gordo'),
+    path('boi_gordo/', listar_boi_gordo, name='listar valores do boi'),
+    path('reposicao/inserir/', modificar_animal_reposicao, name='inserir animal reposicao'),
     path('animais',listar_animais, name='listar_animais'),
     path('estados',listar_estados, name='listar_estados'),
 

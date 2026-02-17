@@ -24,11 +24,11 @@ class AnimalViewSet(viewsets.ModelViewSet):
     serializer_class = AnimalSerialyzer
 
     def get_queryset(self):
-        return Animal.objects.all()
+        return Animal.objects.all() 
 
 class Boi_gordoViewSet(viewsets.ModelViewSet):
 #    template_name = ''
-    permission_classes = [permissions.IsAuthenticated] 
+#    permission_classes = [permissions.IsAuthenticated] 
     queryset = Boi_gordo.objects.all()
     serializer_class = Boi_gordo_Serializer
 

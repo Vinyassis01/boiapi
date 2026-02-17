@@ -42,13 +42,13 @@ def format_femea_nelore(arquivo_entrada,arquivo_saida):
              # vaca magra
             output.write(f'''"estado":"{itens[0]}","animal":"vaca magra","valor_animal":"{itens[1]}","relacao_troca()":"{itens[2]}","relacao_troca()":"{itens[3]}","data":"{datetime.date.today()}"\n''')
             # novilha
-            output.write(f'''"estado":"{itens[0]}","animal":"novilha","valor_animal":"{itens[4]}","relacao_troca()":"{itens[5]}","relacao_troca()":"{itens[6]}","data":"{datetime.date.today()}"\n''')
+            output.write(f'''"estado":"{itens[0]}","animal":"novilha (9@)","valor_animal":"{itens[4]}","relacao_troca()":"{itens[5]}","relacao_troca()":"{itens[6]}","data":"{datetime.date.today()}"\n''')
             # bezerra 9@
-            output.write(f'''"estado":"{itens[0]}","animal":"bezerra (9@)","valor_animal":"{itens[7]}","relacao_troca()":"{itens[8]}","relacao_troca()":"{itens[9]}","data":"{datetime.date.today()}"\n''')
+            output.write(f'''"estado":"{itens[0]}","animal":"bezerra (7@)","valor_animal":"{itens[7]}","relacao_troca()":"{itens[8]}","relacao_troca()":"{itens[9]}","data":"{datetime.date.today()}"\n''')
             # bezerra 6@
-            output.write(f'''"estado":"{itens[0]}","animal":"bezerra (6@)","valor_animal":"{itens[10]}","relacao_troca()":"{itens[11]}","relacao_troca()":"{itens[12]}","data":"{datetime.date.today()}"\n''')
+            output.write(f'''"estado":"{itens[0]}","animal":"bezerra (7@)","valor_animal":"{itens[10]}","relacao_troca()":"{itens[11]}","relacao_troca()":"{itens[12]}","data":"{datetime.date.today()}"\n''')
 
 
-format_boi_gordo(arquivo_entrada='boi gordo @ 2026-02-15.json',arquivo_saida='valores_gerais_boi_gordo.json')  
-format_femea_nelore(arquivo_entrada='femea nelore 2026-02-15.json',arquivo_saida='valores_gerais.json')
-format_macho_nelore(arquivo_entrada='macho nelore @ 2026-02-15.json',arquivo_saida='valores_gerais.json')  
+format_boi_gordo(arquivo_entrada='boi gordo @ 2026-02-17.json',arquivo_saida='valores_gerais_boi_gordo.json')  
+format_femea_nelore(arquivo_entrada='femea nelore @ 2026-02-17.json',arquivo_saida='valores_gerais.json')
+format_macho_nelore(arquivo_entrada='macho nelore @ 2026-02-17.json',arquivo_saida='valores_gerais.json')  
