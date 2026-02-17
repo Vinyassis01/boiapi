@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from boiAPI.models import Boi_gordo,Animal_reposicao
+from boiAPI.models import Boi_gordo,Animal_reposicao,Estado,Animal
 
 class EstadoSerialyzer (serializers.ModelSerializer):
     class Meta:
