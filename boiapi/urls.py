@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path,include 
 from boiAPI.views import arrobas,arroba_por_estado,inserir,inserir_url,home
 # views somente para leitura
-from boiAPI.views import AnimalPageViewSet, EstadoPageViewSet, Boi_gordoPageViewSet, Animal_reposicaoPageViewSet
+from boiAPI.views import AnimalPageViewSet, EstadoPageViewSet, Boi_gordoPageViewSet, Animal_reposicaoPageViewSet, HomeView
 # views para modificar (read, update, delete)
 from boiAPI.views import Boi_gordoViewSet, Animal_reposicaoViewSet, EstadoViewSet, AnimalViewSet
 
@@ -33,6 +33,7 @@ listar_boi_gordo = Boi_gordoPageViewSet.as_view({'get':'list'})
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',HomeView.as_view(), name='home'),
     path('animais/<int:pk>/modificar/', modificar_animal, name= 'modificar animal'),
     path('animais/<int:pk>/delete/', modificar_animal, name='deletar animal'),
     path('animais/inserir/', modificar_animal, name='inserir animal'),

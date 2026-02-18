@@ -3,6 +3,7 @@ from rest_framework import status, permissions, viewsets
 from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from boiAPI.models import Animal, Estado, Animal_reposicao, Boi_gordo
 from boiapi.serialyzers import AnimalSerialyzer,EstadoSerialyzer,Animal_reposicao_Serializer,Boi_gordo_Serializer
 # Create your views here.
@@ -65,7 +66,12 @@ class Animal_reposicaoPageViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Animal_reposicao.objects.all()
     serializer_class = Animal_reposicao_Serializer
 
+class HomeView(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'home.html'
 
+    def get(self, request, *args, **kwargs):
+        return Response({'status': 'online'})
 
 @api_view(["GET"]) # OK
 @renderer_classes([TemplateHTMLRenderer])

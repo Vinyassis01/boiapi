@@ -15,7 +15,7 @@ class AnimalSerialyzer (serializers.ModelSerializer):
 class Animal_reposicao_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Animal_reposicao
-        fields = ['estado','animal','valor_animal','relacao_troca_1','relacao_troca_2','data']
+        fields = ['estado','animal','valor_animal','valor_kg','relacao_troca','data']
 
 class Boi_gordo_Serializer(serializers.ModelSerializer):
     class Meta:

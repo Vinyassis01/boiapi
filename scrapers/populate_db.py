@@ -19,9 +19,8 @@ def inserir_valores_animais_reposicao(arquivo,url):
     ]
 			try:
 			    subprocess.run(comando)
-			#    requests.post(url=url, headers=headers, data=data)
-			#    print(f"ok")
+
 			except Exception as e:
 				print(f"houve um erro {e}")
 
-inserir_valores_animais_reposicao(arquivo='valores_gerais_boi_gordo.json',url='http://127.0.0.1:8000/boi_gordo/inserir/')
+inserir_valores_animais_reposicao(arquivo='valores_gerais.json',url='http://127.0.0.1:8000/reposicao/inserir/')
