@@ -37,7 +37,7 @@ class Boi_gordoViewSet(viewsets.ModelViewSet):
     
 class Animal_reposicaoViewSet(viewsets.ModelViewSet):
 #    template_name = ''    
-    permission_classes = [permissions.IsAuthenticated] 
+#    permission_classes = [permissions.IsAuthenticated] 
     queryset= Animal_reposicao.objects.all()
     serializer_class = Animal_reposicao_Serializer
 

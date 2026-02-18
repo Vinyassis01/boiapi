@@ -23,9 +23,9 @@ class Animal (models.Model):
 class Boi_gordo (models.Model):
     estado = models.CharField(max_length=50,default='')
     animal = models.CharField(max_length=50,default='boi gordo')
-    regiao = models.CharField(max_length=50,default='')
-    arroba_a_vista = models.CharField(max_length=10,default='')
-    arroba_a_prazo = models.CharField(max_length=10,default='')
+    regiao = models.CharField(max_length=50,default='',blank=True)
+    arroba_a_vista = models.CharField(max_length=10)
+    arroba_a_prazo = models.CharField(max_length=10)
     variacao = models.CharField(max_length=10,default='0,0')
     data = models.DateField()
 
@@ -39,8 +39,8 @@ class Animal_reposicao(models.Model):
     estado = models.CharField(max_length=50,default='')
     animal = models.CharField(max_length=50,default='boi gordo')
     valor_animal = models.CharField(max_length=50,default='')
-    relacao_troca_1 = models.CharField(max_length=10)
-    relacao_troca_2 = models.CharField(max_length=10)
+    valor_kg = models.CharField(max_length=10)
+    relacao_troca = models.CharField(max_length=10)
     data = models.DateField()
 
     def __str__(self):
