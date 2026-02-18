@@ -44,4 +44,4 @@ class Animal_reposicao(models.Model):
     data = models.DateField()
 
     def __str__(self):
-        return f"{self.estado},{self.animal},{self.valor_animal},{self.relacao_troca_1},{self.relacao_troca_2},{self.data}"
+        return f"{self.estado},{self.animal},{self.valor_animal},{self.valor_kg},{self.relacao_troca},{self.data}"
