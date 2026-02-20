@@ -31,7 +31,7 @@ jobs:
         run: |
           python3 aioScraper.py
           python3 aio_format.py
-          python3 aio_populate_db.py
+
 
       - name: Salvar resultados no GitHub
         run: |
