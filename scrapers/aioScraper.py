@@ -9,7 +9,7 @@ async def macho_nelore(url,headers):
       html = await response.text()
       soup = BeautifulSoup(html,'html.parser')
       macho_anelorado = soup.find_all('tr',class_="conteudo")[:13]
-      with open (f'macho nelore @ {datetime.date.today()}.json','w') as json:
+      with open (f'macho nelore.json','w') as json:
         for macho in macho_anelorado:
           dados_brutos = macho.get_text()
           dados_limpos = " ".join(dados_brutos.split())
@@ -23,7 +23,7 @@ async def femea_nelore(url,headers):
             html = await response.text()
             soup = BeautifulSoup(html,'html.parser')
             femea_nelorada = soup.find_all('tr',class_="conteudo")[28:41]
-            with open (f'femea nelore @ {datetime.date.today()}.json','w') as json:
+            with open (f'femea nelore.json','w') as json:
                 for femea in femea_nelorada:
                     dados_brutos = femea.get_text()
                     dados_limpos = " ".join(dados_brutos.split())
@@ -36,7 +36,7 @@ async def boi_gordo(url,headers):
             html = await response.text()
             soup = BeautifulSoup(html,'html.parser')
             boi_gordo = soup.find_all('tr','td',class_="conteudo")[12:]
-            with open (f'boi gordo @ {datetime.date.today()}.json','w') as json:
+            with open (f'boi gordo.json','w') as json:
                 for boi in boi_gordo:
                     dados_brutos = boi.get_text()
                     dados_limpos = " ".join(dados_brutos.split())

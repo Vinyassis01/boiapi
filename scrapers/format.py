@@ -50,6 +50,6 @@ def format_femea_nelore(arquivo_entrada,arquivo_saida):
             output.write(f'''{inicio}"estado":"{itens[0]}","animal":"bezerra (7@)","valor_animal":"{itens[10]}","valor_kg":"{itens[11]}","relacao_troca":"{itens[12]}","data":"{datetime.date.today()}"{fim}\n''')
 
 
-#format_boi_gordo(arquivo_entrada='boi gordo @ 2026-02-17.json',arquivo_saida='valores_gerais_boi_gordo.json')  
-format_femea_nelore(arquivo_entrada='femea nelore @ 2026-02-17.json',arquivo_saida='valores_gerais.json')
-format_macho_nelore(arquivo_entrada='macho nelore @ 2026-02-17.json',arquivo_saida='valores_gerais.json')  
+format_boi_gordo(arquivo_entrada='boi gordo.json',arquivo_saida=f'valores_gerais_boi_gordo_{datetime.date.today()}.json')  
+format_femea_nelore(arquivo_entrada='femea nelore.json',arquivo_saida=f'valores_gerais_reposicao_{datetime.date.today()}.json')
+format_macho_nelore(arquivo_entrada='macho nelore.json',arquivo_saida=f'valores_gerais_reposicao_{datetime.date.today()}.json')  
