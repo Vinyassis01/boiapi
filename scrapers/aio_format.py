@@ -1,7 +1,9 @@
 import datetime
+import asyncio
+
 inicio = '{'
 fim = '}'
-def format_macho_nelore(arquivo_entrada,arquivo_saida):
+async def format_macho_nelore(arquivo_entrada,arquivo_saida):
     with open(arquivo_entrada,'r+') as file, \
         open(arquivo_saida,'a') as output :
         # loop para percorrer cada linha
@@ -18,7 +20,7 @@ def format_macho_nelore(arquivo_entrada,arquivo_saida):
             output.write(f'''{inicio}"estado":"{itens[0]}","animal":"bezerro desmamado","valor_animal":"{itens[10]}","valor_kg":"{itens[11]}","relacao_troca":"{itens[12]}","data":"{datetime.date.today()}{fim}"\n''')
 
 
-def format_boi_gordo(arquivo_entrada,arquivo_saida):
+async def format_boi_gordo(arquivo_entrada,arquivo_saida):
     with open(arquivo_entrada,'r+') as file, \
         open(arquivo_saida,'a') as output :
         # loop para percorrer cada linha
@@ -33,7 +35,7 @@ def format_boi_gordo(arquivo_entrada,arquivo_saida):
                 output.write(f'''{inicio}"estado":"{itens[0]}","regiao":"","animal":"boi gordo","arroba_a_vista":"{itens[1]}","arroba_a_prazo":"{itens[2]}","variacao":"{itens[3]}","data":"{datetime.date.today()}"{fim}\n''')
      
 
-def format_femea_nelore(arquivo_entrada,arquivo_saida):
+async def format_femea_nelore(arquivo_entrada,arquivo_saida):
     with open(arquivo_entrada,'r+') as file, \
         open(arquivo_saida,'a') as output :
         # loop para percorrer cada linha
@@ -49,7 +51,12 @@ def format_femea_nelore(arquivo_entrada,arquivo_saida):
             # bezerra 6@
             output.write(f'''{inicio}"estado":"{itens[0]}","animal":"bezerra (7@)","valor_animal":"{itens[10]}","valor_kg":"{itens[11]}","relacao_troca":"{itens[12]}","data":"{datetime.date.today()}"{fim}\n''')
 
+async def main():
+    await asyncio.gather(
+        format_boi_gordo(arquivo_entrada='boi gordo.json',arquivo_saida=f'valores_gerais_boi_gordo_{datetime.date.today()}.json'),  
+        format_femea_nelore(arquivo_entrada='femea nelore.json',arquivo_saida=f'valores_gerais_reposicao_{datetime.date.today()}.json'),
+        format_macho_nelore(arquivo_entrada='macho nelore.json',arquivo_saida=f'valores_gerais_reposicao_{datetime.date.today()}.json'),  
+        )
 
-format_boi_gordo(arquivo_entrada='boi gordo.json',arquivo_saida=f'valores_gerais_boi_gordo_{datetime.date.today()}.json')  
-format_femea_nelore(arquivo_entrada='femea nelore.json',arquivo_saida=f'valores_gerais_reposicao_{datetime.date.today()}.json')
-format_macho_nelore(arquivo_entrada='macho nelore.json',arquivo_saida=f'valores_gerais_reposicao_{datetime.date.today()}.json')  
+if __name__ == "__main__":
+    asyncio.run(main())
