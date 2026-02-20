@@ -17,7 +17,7 @@ async def format_macho_nelore(arquivo_entrada,arquivo_saida):
             # bezerro
             output.write(f'''{inicio}"estado":"{itens[0]}","animal":"bezerro","valor_animal":"{itens[7]}","valor_kg":"{itens[8]}","relacao_troca":"{itens[9]}","data":"{datetime.date.today()}"{fim}\n''')
             # bezerro desmamado
-            output.write(f'''{inicio}"estado":"{itens[0]}","animal":"bezerro desmamado","valor_animal":"{itens[10]}","valor_kg":"{itens[11]}","relacao_troca":"{itens[12]}","data":"{datetime.date.today()}{fim}"\n''')
+            output.write(f'''{inicio}"estado":"{itens[0]}","animal":"bezerro desmamado","valor_animal":"{itens[10]}","valor_kg":"{itens[11]}","relacao_troca":"{itens[12]}","data":"{datetime.date.today()}"{fim}\n''')
 
 
 async def format_boi_gordo(arquivo_entrada,arquivo_saida):

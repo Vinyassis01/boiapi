@@ -2,6 +2,7 @@ import requests
 import time 
 import subprocess
 import asyncio
+import datetime
 
 async def inserir_valores_animais(arquivo,url):
 	print("iniciando o processo para inserir os dadoos no DB")

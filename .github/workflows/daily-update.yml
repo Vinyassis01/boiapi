@@ -23,14 +23,15 @@ jobs:
       - name: Instalar bibliotecas
         run: |
           python -m pip install --upgrade pip
-          pip install beautifulsoup4 asyncio
+          pip install bs4 asyncio aiohttp
 
       - name: Rodar Scripts de Coleta e Limpeza
         # Garante que o contexto do Python seja a pasta scrapers
         working-directory: ./scrapers
         run: |
-          python seu_scraper.py
-          python seu_script_limpeza.py
+          python3 aioScraper.py
+          python3 aio_format.py
+          python3 aio_populate_db.py
 
       - name: Salvar resultados no GitHub
         run: |
