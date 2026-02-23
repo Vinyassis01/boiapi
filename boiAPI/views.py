@@ -58,12 +58,12 @@ class EstadoPageViewSet(viewsets.ReadOnlyModelViewSet):
 
 class Boi_gordoPageViewSet(viewsets.ReadOnlyModelViewSet):
 #    template_name = ''    
-    queryset = Boi_gordo.objects.all()
+    queryset = Boi_gordo.objects.all()[100:200]
     serializer_class = Boi_gordo_Serializer
 
 class Animal_reposicaoPageViewSet(viewsets.ReadOnlyModelViewSet):
 #    template_name = ''
-    queryset = Animal_reposicao.objects.all()
+    queryset = Animal_reposicao.objects.all()[100:200]
     serializer_class = Animal_reposicao_Serializer
 
 class HomeView(APIView):
