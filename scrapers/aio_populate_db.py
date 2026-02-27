@@ -30,12 +30,15 @@ async def inserir_valores_animais(arquivo,url):
 async def main():
     url_reposicao = 'http://127.0.0.1:8000/reposicao/inserir/'
     url_boi_gordo = 'http://127.0.0.1:8000/boi_gordo/inserir/'
-    arquivo_boi_gordo = f'valores_gerais_boi_gordo_2026-02-23.json'
-    arquivo_reposicao = f'valores_gerais_reposicao_2026-02-23.json'
+    
     # Executa ambas as funções ao mesmo tempo
     await asyncio.gather(
-        inserir_valores_animais(arquivo=arquivo_boi_gordo,url=url_boi_gordo),
-        inserir_valores_animais(arquivo=arquivo_reposicao,url=url_reposicao)
+        inserir_valores_animais(arquivo='valores_gerais_boi_gordo_2026-02-24.json',url=url_boi_gordo),
+        inserir_valores_animais(arquivo='valores_gerais_boi_gordo_2026-02-25.json',url=url_boi_gordo),
+        inserir_valores_animais(arquivo='valores_gerais_boi_gordo_2026-02-26.json',url=url_boi_gordo),
+        inserir_valores_animais(arquivo='valores_gerais_reposicao_2026-02-24.json',url=url_reposicao),
+        inserir_valores_animais(arquivo='valores_gerais_reposicao_2026-02-25.json',url=url_reposicao),
+        inserir_valores_animais(arquivo='valores_gerais_reposicao_2026-02-26.json',url=url_reposicao),
     )
 
 if __name__ == "__main__":
