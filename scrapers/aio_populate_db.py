@@ -33,12 +33,21 @@ async def main():
     
     # Executa ambas as funções ao mesmo tempo
     await asyncio.gather(
-        inserir_valores_animais(arquivo='valores_gerais_boi_gordo_2026-02-24.json',url=url_boi_gordo),
-        inserir_valores_animais(arquivo='valores_gerais_boi_gordo_2026-02-25.json',url=url_boi_gordo),
-        inserir_valores_animais(arquivo='valores_gerais_boi_gordo_2026-02-26.json',url=url_boi_gordo),
-        inserir_valores_animais(arquivo='valores_gerais_reposicao_2026-02-24.json',url=url_reposicao),
-        inserir_valores_animais(arquivo='valores_gerais_reposicao_2026-02-25.json',url=url_reposicao),
-        inserir_valores_animais(arquivo='valores_gerais_reposicao_2026-02-26.json',url=url_reposicao),
+        inserir_valores_animais(arquivo='valores_gerais_boi_gordo_2026-02-27.json',url=url_boi_gordo),
+        inserir_valores_animais(arquivo='valores_gerais_boi_gordo_2026-02-28.json',url=url_boi_gordo),
+        inserir_valores_animais(arquivo='valores_gerais_boi_gordo_2026-03-01.json',url=url_boi_gordo),
+        inserir_valores_animais(arquivo='valores_gerais_boi_gordo_2026-03-02.json',url=url_boi_gordo),
+        inserir_valores_animais(arquivo='valores_gerais_boi_gordo_2026-03-03.json',url=url_boi_gordo),
+        inserir_valores_animais(arquivo='valores_gerais_boi_gordo_2026-03-04.json',url=url_boi_gordo),
+        inserir_valores_animais(arquivo='valores_gerais_boi_gordo_2026-03-05.json',url=url_boi_gordo),
+
+        inserir_valores_animais(arquivo='valores_gerais_reposicao_2026-02-27.json',url=url_reposicao),
+        inserir_valores_animais(arquivo='valores_gerais_reposicao_2026-02-28.json',url=url_reposicao),
+        inserir_valores_animais(arquivo='valores_gerais_reposicao_2026-03-01.json',url=url_reposicao),
+        inserir_valores_animais(arquivo='valores_gerais_reposicao_2026-03-02.json',url=url_reposicao),
+        inserir_valores_animais(arquivo='valores_gerais_reposicao_2026-03-03.json',url=url_reposicao),
+        inserir_valores_animais(arquivo='valores_gerais_reposicao_2026-03-04.json',url=url_reposicao),
+        inserir_valores_animais(arquivo='valores_gerais_reposicao_2026-03-05.json',url=url_reposicao),
     )
 
 if __name__ == "__main__":
