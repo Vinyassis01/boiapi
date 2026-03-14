@@ -16,49 +16,49 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include 
-from boiAPI.views import arrobas,arroba_por_estado,inserir,inserir_url,home
 # views somente para leitura
-from boiAPI.views import AnimalPageViewSet, EstadoPageViewSet, Boi_gordoPageViewSet, Animal_reposicaoPageViewSet, HomeView
+from boiAPI.views import Boi_gordoPageViewSet, Animal_reposicaoPageViewSet, HomeView
 # views para modificar (read, update, delete)
-from boiAPI.views import Boi_gordoViewSet, Animal_reposicaoViewSet, EstadoViewSet, AnimalViewSet
+from boiAPI.views import Boi_gordoViewSet, Animal_reposicaoViewSet
+# views para filtros (animal, estado ,valor animal)
+from boiAPI.views import Filtrar_Boi_Gordo_Valor, Animal_reposicaoPageViewSet, Boi_gordoPageViewSet
+from boiAPI.views import Filtrar_Animal_reposicao_Valor, Animal_reposicaoViewSet, Boi_gordoViewSet
 
-modificar_animal = AnimalViewSet.as_view({'post': 'create','put':'update','patch':'partial_update','delete':'destroy'})
-modificar_estado = EstadoViewSet.as_view({'post': 'create','put':'update','patch':'partial_update','delete':'destroy'})
+#filtros
+filtrar_boi_gordo = Filtrar_Boi_Gordo_Valor.as_view({'get':'list'})
+filtrar_animais_reposicao = Filtrar_Animal_reposicao_Valor.as_view({'get':'list'})
+
+# modificacoes
 modificar_animal_reposicao = Animal_reposicaoViewSet.as_view({'post': 'create','put':'update','patch':'partial_update','delete':'destroy'})
 modificar_boi_gordo = Boi_gordoViewSet.as_view({'post': 'create','put':'update','patch':'partial_update','delete':'destroy'})
-listar_animais = AnimalPageViewSet.as_view({'get':'list'})
-listar_estados = EstadoPageViewSet.as_view({'get':'list'})
+
+# listagem
 listar_animais_reposicao = Animal_reposicaoPageViewSet.as_view({'get':'list'})
-listar_boi_gordo = Boi_gordoPageViewSet.as_view({'get':'list'})
+listar_boi_gordo = Boi_gordoPageViewSet.as_view({'get':'list'}) 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',HomeView.as_view(), name='home'),
-    path('animais/<int:pk>/modificar/', modificar_animal, name= 'modificar animal'),
-    path('animais/<int:pk>/delete/', modificar_animal, name='deletar animal'),
-    path('animais/inserir/', modificar_animal, name='inserir animal'),
-    path('animais',listar_animais, name='listar_animais'),
-    path('estados/<int:pk>/modificar/', modificar_estado, name='modificar estado'),
-    path('estados/<int:pk>/delete/', modificar_estado, name='deletar estado'),
-    path('estados/inserir/', modificar_animal, name='inserir estado'),
-    path('estados',listar_estados, name='listar_estados'),
+    # model Boi_gordo
     path('boi_gordo/<int:pk>/modificar/', modificar_boi_gordo, name= 'modificar boi gordo'),
-    path('boi_gordo/<int:pk>/delete/', modificar_animal, name= 'deletar boi_gordo'),
+    path('boi_gordo/<int:pk>/delete/', modificar_boi_gordo, name= 'deletar boi_gordo'),
     path('boi_gordo/inserir/', modificar_boi_gordo, name='inserir boi gordo'),
     path('boi_gordo/', listar_boi_gordo, name='listar valores do boi'),
+    # model Animais_reposicao
     path('animais_reposicao/<int:pk>/modificar/', modificar_animal_reposicao, name= 'modificar animal de reposicao'),
     path('animais_reposicao/<int:pk>/delete/', modificar_animal_reposicao, name='deletar animal de reposicao'),
     path('reposicao/inserir/', modificar_animal_reposicao, name='inserir animal reposicao'),
     path('animal_reposicao/', listar_animais_reposicao, name='listar valores de animais para reposicao'),
-
-#    path('api/', include(router.urls)),
-#    path('arroba',arrobas), #GET
-#    path('arroba/<str:date>/',date_boi,name='arrobas do dia'),# get por data
-#    path('update',inserir), # POST
-#    path('page/',render_custom_api,name='html customizado'), #GET
-#    path('',home,name='bem vindo a BOIAPI'),# GET para a home do site
-#    path('arroba/<str:estado>',arroba_por_estado,name='arroba por estado'), # GET
-#    path('arroba/<str:animal>',arroba_por_animal,name='animais por estado'),# GET
-#    path('update/<str:date>/<str:animal>/<int:arroba>/<str:estado>/<str:regiao>',inserir_url,name='arroba_por_estado'), # POST
-#    path('delete/<int:id>',delete,name='delete'), # DELETE
+    # filtros reposicao
+    path('reposicao/estado/<str:estado>',filtrar_animais_reposicao, name='filtrar por estado'),
+    path('reposicao/animal/<str:animal>',filtrar_animais_reposicao, name='filtrar por animal'),
+    path('reposicao/estado/<str:estado>/animal/<str:animal>',filtrar_animais_reposicao, name='filtrar por estado e animal'),
+    path('reposicao/estado/<str:estado>/limiar/<int:limiar>',filtrar_animais_reposicao,name='filtrar por estado e limiar'),
+    path('reposicao/animal/<str:animal>/limiar/<int:limiar>',filtrar_animais_reposicao,name='filtrar por animal e limiar'),
+    path('reposicao/estado/<str:estado>/animal/<str:animal>/limiar/<int:limiar>',filtrar_animais_reposicao,name='filtrar por estado, animal e limiar'),
+    # filtros boi
+    path('boigordo/estado/<str:estado>',filtrar_boi_gordo, name='filtrar boi gordo por estado'),
+    path('boigordo/limiar/<int:limiar>',filtrar_boi_gordo, name='filtrar boi gordo por limiar'),
+    path('boigordo/estado/<str:estado>/limiar/<int:limiar>',filtrar_boi_gordo, name='filtrar boi gordo por estado e limiar'),
+   
 ]

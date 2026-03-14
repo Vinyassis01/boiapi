@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.db.models import IntegerField, Value
+from django.db.models.functions import Cast, Replace, Left
 from rest_framework import status, permissions, viewsets
 from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.renderers import TemplateHTMLRenderer
@@ -9,28 +11,10 @@ from boiapi.serialyzers import AnimalSerialyzer,EstadoSerialyzer,Animal_reposica
 # Create your views here.
 
 # views para modificar (read, update, delete)
-class EstadoViewSet(viewsets.ModelViewSet):
-#    template_name = ''    
-    permission_classes = [permissions.IsAuthenticated] 
-    queryset = Estado.objects.all()
-    serializer_class = EstadoSerialyzer
-
-    def get_queryset(self):
-        return Estado.objects.all()
-    
-class AnimalViewSet(viewsets.ModelViewSet):
-#    template_name = ''    
-    permission_classes = [permissions.IsAuthenticated] 
-    queryset= Animal.objects.all()
-    serializer_class = AnimalSerialyzer
-
-    def get_queryset(self):
-        return Animal.objects.all() 
-
 class Boi_gordoViewSet(viewsets.ModelViewSet):
 #    template_name = ''
 #    permission_classes = [permissions.IsAuthenticated] 
-    queryset = Boi_gordo.objects.all()
+    queryset = Boi_gordo.objects.all()[:100]
     serializer_class = Boi_gordo_Serializer
 
     def get_queryset(self):
@@ -39,32 +23,78 @@ class Boi_gordoViewSet(viewsets.ModelViewSet):
 class Animal_reposicaoViewSet(viewsets.ModelViewSet):
 #    template_name = ''    
 #    permission_classes = [permissions.IsAuthenticated] 
-    queryset= Animal_reposicao.objects.all()
+    queryset= Animal_reposicao.objects.all()[:100]
     serializer_class = Animal_reposicao_Serializer
 
     def get_queryset(self):
         return Animal_reposicao.objects.all()
 
 # views apenas para leitura
-class AnimalPageViewSet(viewsets.ReadOnlyModelViewSet):
-#    template_name = ''
-    queryset = Animal.objects.all()
-    serializer_class = AnimalSerialyzer
-
-class EstadoPageViewSet(viewsets.ReadOnlyModelViewSet):
-#    template_name = ''
-    queryset = Estado.objects.all()
-    serializer_class = AnimalSerialyzer
-
 class Boi_gordoPageViewSet(viewsets.ReadOnlyModelViewSet):
 #    template_name = ''    
-    queryset = Boi_gordo.objects.all()[100:200]
+    queryset = Boi_gordo.objects.all()[:100]
     serializer_class = Boi_gordo_Serializer
 
 class Animal_reposicaoPageViewSet(viewsets.ReadOnlyModelViewSet):
 #    template_name = ''
-    queryset = Animal_reposicao.objects.all()[100:200]
+    queryset = Animal_reposicao.objects.all()[:100]
     serializer_class = Animal_reposicao_Serializer
+
+class Animal_reposicaoPageViewSet_Estado(viewsets.ReadOnlyModelViewSet):
+    serializer_class = Animal_reposicao_Serializer
+    def get_queryset(self): 
+        # Pegamos o valor do parâmetro 'estado' da URL
+        estado = self.kwargs.get('estado')
+        queryset = Animal_reposicao.objects.filter(estado__iexact=estado)[:100]
+        return queryset
+
+class Filtrar_Boi_Gordo_Valor(viewsets.ReadOnlyModelViewSet):
+    serializer_class= Boi_gordo_Serializer
+    def get_queryset(self):
+        # Pegamos o valor do parâmetro 'estado' e 'limiar' da URL se disponiveis
+        estado = self.kwargs.get('estado')
+        limiar = self.kwargs.get('limiar')
+        if estado :
+            queryset =  Boi_gordo.objects.filter(estado__iexact=estado)
+
+        if limiar:
+            queryset = Boi_gordo.objects.all()
+            queryset = queryset.annotate(
+                valor_inteiro=Cast(
+                    Left(Replace('arroba_a_vista', Value(','), Value('.')), 4),
+                    output_field=IntegerField()
+                )
+            ).filter(valor_inteiro__gt=int(limiar))
+
+        return queryset
+
+class Filtrar_Animal_reposicao_Valor(viewsets.ReadOnlyModelViewSet):
+    serializer_class = Animal_reposicao_Serializer
+    def get_queryset(self):
+        limiar = self.kwargs.get('limiar')
+        animal = self.kwargs.get('animal')
+        estado = self.kwargs.get('estado')
+
+        if animal and not estado:
+            queryset =  Animal_reposicao.objects.filter(animal__iexact=animal)
+
+        if estado and not animal:
+            queryset = Animal_reposicao.objects.filter(estado__iexact=estado)
+
+        if animal and estado:
+            queryset = Animal_reposicao.objects.filter(estado__iexact=estado,animal__iexact=animal)
+
+        if limiar:
+            queryset = queryset.annotate(
+                valor_inteiro=Cast(
+                    Left(Replace('valor_animal', Value(','), Value('.')), 4),
+                    output_field=IntegerField()
+                )
+            ).filter(valor_inteiro__gt=int(limiar))
+
+        return queryset
+        
+
 
 class HomeView(APIView):
     renderer_classes = [TemplateHTMLRenderer]
@@ -73,99 +103,3 @@ class HomeView(APIView):
     def get(self, request, *args, **kwargs):
         return Response({'status': 'online'})
 
-@api_view(["GET"]) # OK
-@renderer_classes([TemplateHTMLRenderer])
-def arrobas (request):
-    try:
-        valores = Boi.objects.all()
-        serializador = Boiserialyzer(valores,many=True) # many=True e necessario para consultar varios valores
-        data = serializador.data
-        return Response({"dados":data},template_name='boiAPI/main.html')
-    except:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
-@api_view(["GET"]) # OK
-@renderer_classes([TemplateHTMLRenderer])  
-def arroba_por_estado (request,estado):
-    try:
-        valores_estado = Boi.objects.filter(estado=estado) # estado=estado e necessario para os parametros na url
-        serializador = Boiserialyzer(valores_estado,many=True)
-        data = serializador.data
-        return Response({"dados":data},template_name='boiAPI/main.html')
-    except:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    
-@api_view(['GET'])
-@renderer_classes([TemplateHTMLRenderer])    
-def arroba_por_animal (request,animal):
-    try:
-        valores_estado = Boi.objects.filter(animal=animal) # animal=animal e necessario para os parametros na url
-        serializador = Boiserialyzer(valores_estado,many=True)
-        data = serializador.data
-        return Response({"dados":data},template_name='boiAPI/main.html')
-    except:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
-@api_view(["POST","GET"])
-# curl http://127.0.0.1:8000/update --json '{"date":"2025-12-23","animal":"bezerro desmamado","arroba":"446.15","estado":"SP","regiao":"SP"}'
-def inserir(request):
-    try:
-        if request.method == "POST": # verifica se o metodo e post
-            serializador = Boiserialyzer(data=request.data) # serializa os dados da requisicao
-            if serializador.is_valid() : # verifica se o serializador e valido
-                serializador.save() # salva (prescisa de um metodo create no serialyzers.py)
-                return Response(serializador.data,status.HTTP_201_CREATED)
-    except:
-        return Response(status=status.HTTP_400_BAD_REQUEST)
-
-@api_view(["POST","GET"]) # curl -X POST -H "Content-Type:application/json" http://127.0.0.1:8000/update/garrote/260/pr/norte
-def inserir_url(request,date,animal,arroba,estado,regiao): # mas retorna  400
-    try:
-        if request.method == "POST": # verifica se o metodo e post
-            boi_instance = Boi.objects.create(date=date,animal=animal,arroba=arroba,estado=estado,regiao=regiao)
-            serializador = Boiserialyzer(data=boi_instance) # serializa os dados da requisicao
-            if serializador.is_valid() : # verifica se o serializador e valido
-                serializador.save() # salva (prescisa de um metodo create no serialyzers.py)
-            return Response(serializador.data,status=status.HTTP_201_CREATED)
-    except:
-        return Response(status=status.HTTP_400_BAD_REQUEST)
-
-@api_view(["DELETE"]) # OK
-def delete(request,id): # funciona com curl >> curl -X DELETE http://127.0.0.1:8000/delete/5
-    try:
-        valores = Boi.objects.get(id=id) # mas retorna 400
-        valores.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-    except:
-        return Response(status=status.HTTP_400_BAD_REQUEST)
-    
-@api_view(["PATCH","GET"])
-def update (request,id):
-    try:
-        item = Boi.objects.filter(id=id).exists()
-        if request.method == "PATCH":
-            serializador = Boiserialyzer(request.data,partial=True)
-            if serializador.is_valid():
-                serializador.save()
-            return Response(status=status.HTTP_202_ACCEPTED)
-        elif request.method == "GET":
-            serializador = Boiserialyzer(data=request.data,partial=True)
-            return Response(serializador.data)
-    except:
-        return Response(status=status.HTTP_304_NOT_MODIFIED)
-   
-@api_view(['GET'])
-@renderer_classes([TemplateHTMLRenderer])
-def render_custom_api(request):
-    # Buscando dados do banco de dados
-    dados = Boi.objects.all()
-    serializador = Boiserialyzer(dados,many=True)
-    data = serializador.data
-    # O Response recebe o dicionário de contexto e o template_name
-    return Response({"dados":data},template_name='boiAPI/main.html')
-
-@api_view(['GET'])
-@renderer_classes([TemplateHTMLRenderer])
-def home(request):
-    dados ={"bem vindo":"de uma olhada na API"}
-    return Response(dados,template_name='boiAPI/home.html')
