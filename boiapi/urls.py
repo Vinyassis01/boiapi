@@ -20,13 +20,15 @@ from django.urls import path,include
 from boiAPI.views import Boi_gordoPageViewSet, Animal_reposicaoPageViewSet, HomeView
 # views para modificar (read, update, delete)
 from boiAPI.views import Boi_gordoViewSet, Animal_reposicaoViewSet
-# views para filtros (animal, estado ,valor animal)
+# views para filtros (animal, estado ,valor animal, data)
 from boiAPI.views import Filtrar_Boi_Gordo_Valor, Animal_reposicaoPageViewSet, Boi_gordoPageViewSet
 from boiAPI.views import Filtrar_Animal_reposicao_Valor, Animal_reposicaoViewSet, Boi_gordoViewSet
+from boiAPI.views import Filtrar_Boi_Gordo_Data
 
 #filtros
 filtrar_boi_gordo = Filtrar_Boi_Gordo_Valor.as_view({'get':'list'})
 filtrar_animais_reposicao = Filtrar_Animal_reposicao_Valor.as_view({'get':'list'})
+filtrar_boi_gordo_data = Filtrar_Boi_Gordo_Data.as_view({'get':'list'})
 
 # modificacoes
 modificar_animal_reposicao = Animal_reposicaoViewSet.as_view({'post': 'create','put':'update','patch':'partial_update','delete':'destroy'})
@@ -60,5 +62,9 @@ urlpatterns = [
     path('boigordo/estado/<str:estado>',filtrar_boi_gordo, name='filtrar boi gordo por estado'),
     path('boigordo/limiar/<int:limiar>',filtrar_boi_gordo, name='filtrar boi gordo por limiar'),
     path('boigordo/estado/<str:estado>/limiar/<int:limiar>',filtrar_boi_gordo, name='filtrar boi gordo por estado e limiar'),
+    path('boigordo/data/<str:data>',filtrar_boi_gordo_data),
+    path('boigordo/data_inicio/<str:data_inicio>',filtrar_boi_gordo_data),
+    path('boigordo/data_fim/<str:data_fim>',filtrar_boi_gordo_data),
+    path('boigordo/data_inicio/<str:data_inicio>/data_fim/<str:data_fim>',filtrar_boi_gordo_data),
    
 ]

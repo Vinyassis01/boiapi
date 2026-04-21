@@ -40,16 +40,10 @@ class Animal_reposicaoPageViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Animal_reposicao.objects.all()[:100]
     serializer_class = Animal_reposicao_Serializer
 
-class Animal_reposicaoPageViewSet_Estado(viewsets.ReadOnlyModelViewSet):
-    serializer_class = Animal_reposicao_Serializer
-    def get_queryset(self): 
-        # Pegamos o valor do parâmetro 'estado' da URL
-        estado = self.kwargs.get('estado')
-        queryset = Animal_reposicao.objects.filter(estado__iexact=estado)[:100]
-        return queryset
-
 class Filtrar_Boi_Gordo_Valor(viewsets.ReadOnlyModelViewSet):
     serializer_class= Boi_gordo_Serializer
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'request_boi_gordo.html'
     def get_queryset(self):
         # Pegamos o valor do parâmetro 'estado' e 'limiar' da URL se disponiveis
         estado = self.kwargs.get('estado')
@@ -68,8 +62,21 @@ class Filtrar_Boi_Gordo_Valor(viewsets.ReadOnlyModelViewSet):
 
         return queryset
 
+    def list(self, request, *args, **kwargs):
+        # 1. Obtém o queryset filtrado
+        queryset = self.get_queryset()
+        
+        # 2. Serializa os dados (opcional, mas recomendado para formatar campos)
+        serializer = self.get_serializer(queryset, many=True)
+        
+        # 3. Retorna os dados dentro da chave 'data' para o template
+        return Response({'data': serializer.data})
+          
+
 class Filtrar_Animal_reposicao_Valor(viewsets.ReadOnlyModelViewSet):
     serializer_class = Animal_reposicao_Serializer
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'request_reposicao.html'
     def get_queryset(self):
         limiar = self.kwargs.get('limiar')
         animal = self.kwargs.get('animal')
@@ -93,8 +100,49 @@ class Filtrar_Animal_reposicao_Valor(viewsets.ReadOnlyModelViewSet):
             ).filter(valor_inteiro__gt=int(limiar))
 
         return queryset
-        
 
+    def list(self, request, *args, **kwargs):
+        # 1. Obtém o queryset filtrado
+        queryset = self.get_queryset()
+        
+        # 2. Serializa os dados (opcional, mas recomendado para formatar campos)
+        serializer = self.get_serializer(queryset, many=True)
+        
+        # 3. Retorna os dados dentro da chave 'data' para o template
+        return Response({'data': serializer.data})
+        
+class Filtrar_Boi_Gordo_Data(viewsets.ReadOnlyModelViewSet):
+    serializer_class= Boi_gordo_Serializer
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'request_boi_gordo.html'
+    def get_queryset(self):
+        data = self.kwargs.get('data')
+        data_inicio = self.kwargs.get('data_inicio')
+        data_fim = self.kwargs.get('data_fim')
+
+        if data and not data_inicio:
+            queryset = Boi_gordo.objects.filter(data=data) # "="
+
+        if data_inicio and not data_fim:
+            queryset = Boi_gordo.objects.filter(data__gte=data_inicio) # ">="
+
+        if data_fim and not data:
+            queryset = Boi_gordo.objects.filter(data__lte=data_fim) # "<="
+
+        if data_inicio and data_fim:
+            queryset = Boi_gordo.objects.filter(data__range=(data_inicio,data_fim))
+
+        return queryset
+
+    def list(self, request, *args, **kwargs):
+        # 1. Obtém o queryset filtrado
+        queryset = self.get_queryset()
+        
+        # 2. Serializa os dados (opcional, mas recomendado para formatar campos)
+        serializer = self.get_serializer(queryset, many=True)
+        
+        # 3. Retorna os dados dentro da chave 'data' para o template
+        return Response({'data': serializer.data})
 
 class HomeView(APIView):
     renderer_classes = [TemplateHTMLRenderer]
