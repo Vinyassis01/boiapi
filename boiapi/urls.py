@@ -21,13 +21,13 @@ from boiAPI.views import Boi_gordoPageViewSet, Animal_reposicaoPageViewSet, Home
 # views para modificar (read, update, delete)
 from boiAPI.views import Boi_gordoViewSet, Animal_reposicaoViewSet
 # views para filtros (animal, estado ,valor animal, data)
-from boiAPI.views import Filtrar_Boi_Gordo_Valor, Animal_reposicaoPageViewSet, Boi_gordoPageViewSet
-from boiAPI.views import Filtrar_Animal_reposicao_Valor, Animal_reposicaoViewSet, Boi_gordoViewSet
+from boiAPI.views import Filtrar_Boi_Gordo_Valor_Data, Animal_reposicaoPageViewSet, Boi_gordoPageViewSet
+from boiAPI.views import Filtrar_Animal_reposicao_Valor_Data, Animal_reposicaoViewSet, Boi_gordoViewSet
 from boiAPI.views import Filtrar_Boi_Gordo_Data
 
 #filtros
-filtrar_boi_gordo = Filtrar_Boi_Gordo_Valor.as_view({'get':'list'})
-filtrar_animais_reposicao = Filtrar_Animal_reposicao_Valor.as_view({'get':'list'})
+filtrar_boi_gordo = Filtrar_Boi_Gordo_Valor_Data.as_view({'get':'list'})
+filtrar_animais_reposicao = Filtrar_Animal_reposicao_Valor_Data.as_view({'get':'list'})
 filtrar_boi_gordo_data = Filtrar_Boi_Gordo_Data.as_view({'get':'list'})
 
 # modificacoes
@@ -52,19 +52,7 @@ urlpatterns = [
     path('reposicao/inserir/', modificar_animal_reposicao, name='inserir animal reposicao'),
     path('animal_reposicao/', listar_animais_reposicao, name='listar valores de animais para reposicao'),
     # filtros reposicao
-    path('reposicao/estado/<str:estado>',filtrar_animais_reposicao, name='filtrar por estado'),
-    path('reposicao/animal/<str:animal>',filtrar_animais_reposicao, name='filtrar por animal'),
-    path('reposicao/estado/<str:estado>/animal/<str:animal>',filtrar_animais_reposicao, name='filtrar por estado e animal'),
-    path('reposicao/estado/<str:estado>/limiar/<int:limiar>',filtrar_animais_reposicao,name='filtrar por estado e limiar'),
-    path('reposicao/animal/<str:animal>/limiar/<int:limiar>',filtrar_animais_reposicao,name='filtrar por animal e limiar'),
-    path('reposicao/estado/<str:estado>/animal/<str:animal>/limiar/<int:limiar>',filtrar_animais_reposicao,name='filtrar por estado, animal e limiar'),
+    path('reposicao/valor/',filtrar_animais_reposicao, name='filtrar por estado, animal, data e ou limiar(valor animal)'),
     # filtros boi
-    path('boigordo/estado/<str:estado>',filtrar_boi_gordo, name='filtrar boi gordo por estado'),
-    path('boigordo/limiar/<int:limiar>',filtrar_boi_gordo, name='filtrar boi gordo por limiar'),
-    path('boigordo/estado/<str:estado>/limiar/<int:limiar>',filtrar_boi_gordo, name='filtrar boi gordo por estado e limiar'),
-    path('boigordo/data/<str:data>',filtrar_boi_gordo_data),
-    path('boigordo/data_inicio/<str:data_inicio>',filtrar_boi_gordo_data),
-    path('boigordo/data_fim/<str:data_fim>',filtrar_boi_gordo_data),
-    path('boigordo/data_inicio/<str:data_inicio>/data_fim/<str:data_fim>',filtrar_boi_gordo_data),
-   
+    path('boigordo/valor/',filtrar_boi_gordo, name='filtrar boi gordo por estado, data e ou arroba a vista(limiar)'),   
 ]
