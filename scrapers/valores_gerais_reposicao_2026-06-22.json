@@ -1,0 +1,104 @@
+{"estado":"SP","animal":"vaca magra","valor_animal":"3335,00","valor_kg":"10,11","relacao_troca":"9,58","data":"2026-06-22"}
+{"estado":"SP","animal":"novilha (9@)","valor_animal":"3189,00","valor_kg":"11,81","relacao_troca":"9,16","data":"2026-06-22"}
+{"estado":"SP","animal":"bezerra (7@)","valor_animal":"2645,00","valor_kg":"12,60","relacao_troca":"7,60","data":"2026-06-22"}
+{"estado":"SP","animal":"bezerra (7@)","valor_animal":"2325,00","valor_kg":"12,92","relacao_troca":"6,68","data":"2026-06-22"}
+{"estado":"MG","animal":"vaca magra","valor_animal":"3445,00","valor_kg":"10,44","relacao_troca":"10,67","data":"2026-06-22"}
+{"estado":"MG","animal":"novilha (9@)","valor_animal":"2965,00","valor_kg":"10,98","relacao_troca":"9,19","data":"2026-06-22"}
+{"estado":"MG","animal":"bezerra (7@)","valor_animal":"2561,45","valor_kg":"12,20","relacao_troca":"7,94","data":"2026-06-22"}
+{"estado":"MG","animal":"bezerra (7@)","valor_animal":"2225,00","valor_kg":"12,36","relacao_troca":"6,89","data":"2026-06-22"}
+{"estado":"GO","animal":"vaca magra","valor_animal":"3745,00","valor_kg":"11,35","relacao_troca":"11,42","data":"2026-06-22"}
+{"estado":"GO","animal":"novilha (9@)","valor_animal":"3080,00","valor_kg":"11,41","relacao_troca":"9,39","data":"2026-06-22"}
+{"estado":"GO","animal":"bezerra (7@)","valor_animal":"2665,00","valor_kg":"12,69","relacao_troca":"8,13","data":"2026-06-22"}
+{"estado":"GO","animal":"bezerra (7@)","valor_animal":"2350,00","valor_kg":"13,06","relacao_troca":"7,16","data":"2026-06-22"}
+{"estado":"MS","animal":"vaca magra","valor_animal":"3645,00","valor_kg":"11,05","relacao_troca":"10,66","data":"2026-06-22"}
+{"estado":"MS","animal":"novilha (9@)","valor_animal":"3335,00","valor_kg":"12,35","relacao_troca":"9,75","data":"2026-06-22"}
+{"estado":"MS","animal":"bezerra (7@)","valor_animal":"2910,00","valor_kg":"13,86","relacao_troca":"8,51","data":"2026-06-22"}
+{"estado":"MS","animal":"bezerra (7@)","valor_animal":"2610,00","valor_kg":"14,50","relacao_troca":"7,63","data":"2026-06-22"}
+{"estado":"BA","animal":"vaca magra","valor_animal":"3026,00","valor_kg":"9,17","relacao_troca":"9,40","data":"2026-06-22"}
+{"estado":"BA","animal":"novilha (9@)","valor_animal":"2700,00","valor_kg":"10,00","relacao_troca":"8,39","data":"2026-06-22"}
+{"estado":"BA","animal":"bezerra (7@)","valor_animal":"2310,00","valor_kg":"11,00","relacao_troca":"7,17","data":"2026-06-22"}
+{"estado":"BA","animal":"bezerra (7@)","valor_animal":"2036,00","valor_kg":"11,31","relacao_troca":"6,32","data":"2026-06-22"}
+{"estado":"MT","animal":"vaca magra","valor_animal":"3630,00","valor_kg":"11,00","relacao_troca":"10,65","data":"2026-06-22"}
+{"estado":"MT","animal":"novilha (9@)","valor_animal":"3145,00","valor_kg":"11,65","relacao_troca":"9,23","data":"2026-06-22"}
+{"estado":"MT","animal":"bezerra (7@)","valor_animal":"2625,00","valor_kg":"12,50","relacao_troca":"7,70","data":"2026-06-22"}
+{"estado":"MT","animal":"bezerra (7@)","valor_animal":"2310,00","valor_kg":"12,83","relacao_troca":"6,78","data":"2026-06-22"}
+{"estado":"PR","animal":"vaca magra","valor_animal":"3545,00","valor_kg":"10,74","relacao_troca":"10,43","data":"2026-06-22"}
+{"estado":"PR","animal":"novilha (9@)","valor_animal":"3448,95","valor_kg":"12,77","relacao_troca":"10,14","data":"2026-06-22"}
+{"estado":"PR","animal":"bezerra (7@)","valor_animal":"2881,00","valor_kg":"13,72","relacao_troca":"8,47","data":"2026-06-22"}
+{"estado":"PR","animal":"bezerra (7@)","valor_animal":"2560,00","valor_kg":"14,22","relacao_troca":"7,53","data":"2026-06-22"}
+{"estado":"PA","animal":"vaca magra","valor_animal":"3630,00","valor_kg":"11,00","relacao_troca":"10,56","data":"2026-06-22"}
+{"estado":"PA","animal":"novilha (9@)","valor_animal":"2995,00","valor_kg":"11,09","relacao_troca":"8,71","data":"2026-06-22"}
+{"estado":"PA","animal":"bezerra (7@)","valor_animal":"2523,00","valor_kg":"12,01","relacao_troca":"7,34","data":"2026-06-22"}
+{"estado":"PA","animal":"bezerra (7@)","valor_animal":"2310,00","valor_kg":"12,83","relacao_troca":"6,72","data":"2026-06-22"}
+{"estado":"RO","animal":"vaca magra","valor_animal":"3525,00","valor_kg":"10,68","relacao_troca":"10,43","data":"2026-06-22"}
+{"estado":"RO","animal":"novilha (9@)","valor_animal":"2925,00","valor_kg":"10,83","relacao_troca":"8,65","data":"2026-06-22"}
+{"estado":"RO","animal":"bezerra (7@)","valor_animal":"2525,00","valor_kg":"12,02","relacao_troca":"7,47","data":"2026-06-22"}
+{"estado":"RO","animal":"bezerra (7@)","valor_animal":"2250,00","valor_kg":"12,50","relacao_troca":"6,66","data":"2026-06-22"}
+{"estado":"TO","animal":"vaca magra","valor_animal":"3401,00","valor_kg":"10,31","relacao_troca":"10,18","data":"2026-06-22"}
+{"estado":"TO","animal":"novilha (9@)","valor_animal":"2942,00","valor_kg":"10,90","relacao_troca":"8,81","data":"2026-06-22"}
+{"estado":"TO","animal":"bezerra (7@)","valor_animal":"2500,00","valor_kg":"11,90","relacao_troca":"7,49","data":"2026-06-22"}
+{"estado":"TO","animal":"bezerra (7@)","valor_animal":"2245,00","valor_kg":"12,47","relacao_troca":"6,72","data":"2026-06-22"}
+{"estado":"AC","animal":"vaca magra","valor_animal":"2676,00","valor_kg":"8,11","relacao_troca":"8,77","data":"2026-06-22"}
+{"estado":"AC","animal":"novilha (9@)","valor_animal":"2410,00","valor_kg":"8,93","relacao_troca":"7,90","data":"2026-06-22"}
+{"estado":"AC","animal":"bezerra (7@)","valor_animal":"1990,50","valor_kg":"9,48","relacao_troca":"6,53","data":"2026-06-22"}
+{"estado":"AC","animal":"bezerra (7@)","valor_animal":"1824,00","valor_kg":"10,13","relacao_troca":"5,98","data":"2026-06-22"}
+{"estado":"MA","animal":"vaca magra","valor_animal":"3340,00","valor_kg":"10,12","relacao_troca":"9,88","data":"2026-06-22"}
+{"estado":"MA","animal":"novilha (9@)","valor_animal":"2845,00","valor_kg":"10,54","relacao_troca":"8,42","data":"2026-06-22"}
+{"estado":"MA","animal":"bezerra (7@)","valor_animal":"2510,00","valor_kg":"11,95","relacao_troca":"7,43","data":"2026-06-22"}
+{"estado":"MA","animal":"bezerra (7@)","valor_animal":"2175,00","valor_kg":"12,08","relacao_troca":"6,43","data":"2026-06-22"}
+{"estado":"RJ","animal":"vaca magra","valor_animal":"3289,00","valor_kg":"9,97","relacao_troca":"9,67","data":"2026-06-22"}
+{"estado":"RJ","animal":"novilha (9@)","valor_animal":"2970,00","valor_kg":"11,00","relacao_troca":"8,74","data":"2026-06-22"}
+{"estado":"RJ","animal":"bezerra (7@)","valor_animal":"2315,00","valor_kg":"11,02","relacao_troca":"6,81","data":"2026-06-22"}
+{"estado":"RJ","animal":"bezerra (7@)","valor_animal":"2040,00","valor_kg":"11,33","relacao_troca":"6,00","data":"2026-06-22"}
+{"estado":"SP","animal":"boi magro","valor_animal":"4645,00","valor_kg":"12,39","relacao_troca":"13,35","data":"2026-06-22"}
+{"estado":"SP","animal":"garrote","valor_animal":"3946,00","valor_kg":"13,15","relacao_troca":"11,34","data":"2026-06-22"}
+{"estado":"SP","animal":"bezerro","valor_animal":"3460,00","valor_kg":"14,42","relacao_troca":"9,94","data":"2026-06-22"}
+{"estado":"SP","animal":"bezerro desmamado","valor_animal":"3187,53","valor_kg":"16,35","relacao_troca":"9,16","data":"2026-06-22"}
+{"estado":"MG","animal":"boi magro","valor_animal":"4535,00","valor_kg":"12,09","relacao_troca":"14,05","data":"2026-06-22"}
+{"estado":"MG","animal":"garrote","valor_animal":"3825,00","valor_kg":"12,75","relacao_troca":"11,85","data":"2026-06-22"}
+{"estado":"MG","animal":"bezerro","valor_animal":"3325,00","valor_kg":"13,85","relacao_troca":"10,30","data":"2026-06-22"}
+{"estado":"MG","animal":"bezerro desmamado","valor_animal":"2789,00","valor_kg":"14,30","relacao_troca":"8,64","data":"2026-06-22"}
+{"estado":"GO","animal":"boi magro","valor_animal":"4575,00","valor_kg":"12,20","relacao_troca":"13,95","data":"2026-06-22"}
+{"estado":"GO","animal":"garrote","valor_animal":"3979,00","valor_kg":"13,26","relacao_troca":"12,13","data":"2026-06-22"}
+{"estado":"GO","animal":"bezerro","valor_animal":"3445,00","valor_kg":"14,35","relacao_troca":"10,50","data":"2026-06-22"}
+{"estado":"GO","animal":"bezerro desmamado","valor_animal":"3095,42","valor_kg":"15,87","relacao_troca":"9,44","data":"2026-06-22"}
+{"estado":"MS","animal":"boi magro","valor_animal":"4955,00","valor_kg":"13,21","relacao_troca":"14,49","data":"2026-06-22"}
+{"estado":"MS","animal":"garrote","valor_animal":"4315,00","valor_kg":"14,38","relacao_troca":"12,62","data":"2026-06-22"}
+{"estado":"MS","animal":"bezerro","valor_animal":"3777,00","valor_kg":"15,74","relacao_troca":"11,04","data":"2026-06-22"}
+{"estado":"MS","animal":"bezerro desmamado","valor_animal":"3266,00","valor_kg":"16,75","relacao_troca":"9,55","data":"2026-06-22"}
+{"estado":"BA","animal":"boi magro","valor_animal":"4205,00","valor_kg":"11,21","relacao_troca":"13,06","data":"2026-06-22"}
+{"estado":"BA","animal":"garrote","valor_animal":"3507,50","valor_kg":"11,69","relacao_troca":"10,89","data":"2026-06-22"}
+{"estado":"BA","animal":"bezerro","valor_animal":"3341,00","valor_kg":"13,92","relacao_troca":"10,38","data":"2026-06-22"}
+{"estado":"BA","animal":"bezerro desmamado","valor_animal":"2745,00","valor_kg":"14,08","relacao_troca":"8,52","data":"2026-06-22"}
+{"estado":"MT","animal":"boi magro","valor_animal":"4797,00","valor_kg":"12,79","relacao_troca":"14,08","data":"2026-06-22"}
+{"estado":"MT","animal":"garrote","valor_animal":"4100,00","valor_kg":"13,67","relacao_troca":"12,03","data":"2026-06-22"}
+{"estado":"MT","animal":"bezerro","valor_animal":"3610,00","valor_kg":"15,04","relacao_troca":"10,59","data":"2026-06-22"}
+{"estado":"MT","animal":"bezerro desmamado","valor_animal":"3115,00","valor_kg":"15,97","relacao_troca":"9,14","data":"2026-06-22"}
+{"estado":"PR","animal":"boi magro","valor_animal":"4743,75","valor_kg":"12,65","relacao_troca":"13,95","data":"2026-06-22"}
+{"estado":"PR","animal":"garrote","valor_animal":"4105,00","valor_kg":"13,68","relacao_troca":"12,07","data":"2026-06-22"}
+{"estado":"PR","animal":"bezerro","valor_animal":"3498,00","valor_kg":"14,58","relacao_troca":"10,29","data":"2026-06-22"}
+{"estado":"PR","animal":"bezerro desmamado","valor_animal":"3049,00","valor_kg":"15,64","relacao_troca":"8,97","data":"2026-06-22"}
+{"estado":"PA","animal":"boi magro","valor_animal":"4503,00","valor_kg":"12,01","relacao_troca":"13,10","data":"2026-06-22"}
+{"estado":"PA","animal":"garrote","valor_animal":"3820,00","valor_kg":"12,73","relacao_troca":"11,12","data":"2026-06-22"}
+{"estado":"PA","animal":"bezerro","valor_animal":"3445,00","valor_kg":"14,35","relacao_troca":"10,02","data":"2026-06-22"}
+{"estado":"PA","animal":"bezerro desmamado","valor_animal":"3055,00","valor_kg":"15,67","relacao_troca":"8,89","data":"2026-06-22"}
+{"estado":"RO","animal":"boi magro","valor_animal":"4568,00","valor_kg":"12,18","relacao_troca":"13,51","data":"2026-06-22"}
+{"estado":"RO","animal":"garrote","valor_animal":"3875,00","valor_kg":"12,92","relacao_troca":"11,46","data":"2026-06-22"}
+{"estado":"RO","animal":"bezerro","valor_animal":"3345,00","valor_kg":"13,94","relacao_troca":"9,90","data":"2026-06-22"}
+{"estado":"RO","animal":"bezerro desmamado","valor_animal":"2943,00","valor_kg":"15,09","relacao_troca":"8,71","data":"2026-06-22"}
+{"estado":"TO","animal":"boi magro","valor_animal":"4410,00","valor_kg":"11,76","relacao_troca":"13,20","data":"2026-06-22"}
+{"estado":"TO","animal":"garrote","valor_animal":"3842,00","valor_kg":"12,81","relacao_troca":"11,50","data":"2026-06-22"}
+{"estado":"TO","animal":"bezerro","valor_animal":"3425,00","valor_kg":"14,27","relacao_troca":"10,25","data":"2026-06-22"}
+{"estado":"TO","animal":"bezerro desmamado","valor_animal":"3055,00","valor_kg":"15,67","relacao_troca":"9,15","data":"2026-06-22"}
+{"estado":"AC","animal":"boi magro","valor_animal":"3685,00","valor_kg":"9,83","relacao_troca":"12,08","data":"2026-06-22"}
+{"estado":"AC","animal":"garrote","valor_animal":"3335,00","valor_kg":"11,12","relacao_troca":"10,93","data":"2026-06-22"}
+{"estado":"AC","animal":"bezerro","valor_animal":"2735,00","valor_kg":"11,40","relacao_troca":"8,97","data":"2026-06-22"}
+{"estado":"AC","animal":"bezerro desmamado","valor_animal":"2555,00","valor_kg":"13,10","relacao_troca":"8,38","data":"2026-06-22"}
+{"estado":"MA","animal":"boi magro","valor_animal":"4412,50","valor_kg":"11,77","relacao_troca":"13,05","data":"2026-06-22"}
+{"estado":"MA","animal":"garrote","valor_animal":"3845,00","valor_kg":"12,82","relacao_troca":"11,38","data":"2026-06-22"}
+{"estado":"MA","animal":"bezerro","valor_animal":"3375,00","valor_kg":"14,06","relacao_troca":"9,99","data":"2026-06-22"}
+{"estado":"MA","animal":"bezerro desmamado","valor_animal":"2995,00","valor_kg":"15,36","relacao_troca":"8,86","data":"2026-06-22"}
+{"estado":"RJ","animal":"boi magro","valor_animal":"4102,00","valor_kg":"10,94","relacao_troca":"12,06","data":"2026-06-22"}
+{"estado":"RJ","animal":"garrote","valor_animal":"3445,00","valor_kg":"11,48","relacao_troca":"10,13","data":"2026-06-22"}
+{"estado":"RJ","animal":"bezerro","valor_animal":"3320,00","valor_kg":"13,83","relacao_troca":"9,76","data":"2026-06-22"}
+{"estado":"RJ","animal":"bezerro desmamado","valor_animal":"2760,00","valor_kg":"14,15","relacao_troca":"8,12","data":"2026-06-22"}
